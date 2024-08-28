@@ -60,6 +60,8 @@ class Calculator {
                 break
             case "C":
                 this.processClearAllOperator()
+            case "=":
+                this.processEqualOperator()
             default:
                 return
         }
@@ -109,6 +111,12 @@ class Calculator {
     processClearAllOperator(){
         this.currentOperationText.innerText = ""
         this.previousOperationText.innerText = ""
+    }
+
+    // Process an Operation
+    processEqualOperator(){
+        const operation = previousOperationText.innerText.split(" ")[1]
+        this.processOperation(operation)
     }
 }
 
