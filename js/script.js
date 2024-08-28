@@ -51,7 +51,10 @@ class Calculator {
             case "/":
                 operationValue = previous / current
                 this.updateScreen(operationValue, operation, current, previous)
-                break   
+                break
+            case "DEL":
+                this.processDelOperator(operationValue, operation, current, previous)
+                break
             default:
                 return
         }
@@ -85,6 +88,11 @@ class Calculator {
             return
         }
         this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation
+    }
+
+    // Delete the last digit
+    processDelOperator(){
+        this.currentOperationText.innerText = this.currentOperationText.innerText.slice(0, -1)
     }
 }
 
